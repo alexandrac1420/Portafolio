@@ -1,0 +1,175 @@
+/* Para importar las fuentes se debe ir a la pagina de google font y buscar la fuente, darle get embeded code, elegir import y seguir las instrucciones de css  */
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Para declarar variables globales se usa la notacion root y el nombre de la variable debe empezar como -- */
+:root{
+    --color-primario:#402E7A;
+    --color-secundario:#FDDE55;
+    --color-terciario: #68D2E8;
+    --color-hover: #FEEFAD;
+
+    --fuente-Montserrat:  "Montserrat", sans-serif;
+    --fuente-krona: "Krona One", sans-serif;
+
+}
+
+/* para un cambio universal se usa + */
+*{
+    /* se van a cambiar las configuraciones por elementos del box model, eliminando el margen y el padding (relleno interno) de cada uno de ellos */
+    /*A este proceso se le llama resetear y es importante para eliminar los estilos que vienen por defecto de los navegadores*/
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    /* Para llamar a una variable se debe usar la palabra var y entre parentesis se llama el nombre de la variable */
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    /* vh se usa para determinar que se usa el 100% de la altura de la pagina completa */
+    /* height: 100vh; */
+    /* box sizing se usa para que el tamaño de un elemento hijo no sea mayor al del padre.  */
+    /* Ancho de un elemento = ancho(width) + relleno interno(padding) + borde(border) */
+    /* Altura de un elemento = altura(height) + relleno interno(padding) + borde(border) */
+    box-sizing: border-box;
+}
+
+/* Para especificar una etiqueta en especifico se deben crear las clases css  */
+/* strong{
+    color: #22D4FD;
+} */
+
+
+.header{
+    /*  Se agregan 4 valores, el espacio con la parte superior, con la parte derecha, la de abajo y la de la izquierda*/
+    padding: 2% 0% 0% 15%;
+
+}
+
+.header__menu{
+    display: flex;
+    gap: 80px;
+
+}
+
+.header__menu__links{
+    font-family: var(--fuente-Montserrat);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+.presentacion{
+    /* Alinear el contenido del elemento */
+    display: flex;
+    /* Alinear los elementos en el centro */
+    align-items: center;
+    /* Margen crea un espacio fuera del elemento */
+    /* margin: 10%; */
+    padding: 6% 12%;
+    /* Espacio entre dos elementos */
+    justify-content: space-between;
+    /*Espacio entre la imagen y el texto*/
+    gap: 82px;
+}
+
+.presentacion__contenido{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* El gap permite crear espacio entre los componentes */
+    gap: 40px;
+
+}
+
+/* se debe especificar un . para que se entienda que va a ser una clase  */
+.titulo-destaque{
+    color: var(--color-terciario);
+}
+
+.presentacion__contenido__titulo{
+    font-size: 1.5rem;
+    font-family: var(--fuente-krona);
+
+}
+
+.presentacion__contenido__texto{
+    font-size: 24px;
+    font-family: var(--fuente-Montserrat);
+}
+
+.presentacion__enlace{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* El flex direction cambia el eje, por lo que al tener un eje en columnas no sirve el justify-items sino el align items */
+    align-items: center;
+    gap: 32px;
+}
+
+.presentacion__enlace__subtitulos{
+    font-family: var(--fuente-krona);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.presentacion__enlace__link{
+    width: 50%;
+    /* background-color: #22D4FD; */
+    /* Alinear el texto en el centro */
+    text-align: center;
+    /* Primer valor vertical y el otro horizontal del texto al borde */
+    padding: 21.5px 0;
+    /* Poner los border redondos */
+    border-radius: 8px;
+    font-family: var(--fuente-Montserrat);
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* Quitar la linea debajo */
+    text-decoration: none;
+    color: var(--color-secundario);
+    /* Esto crea un borde de tamaño 2px, tipo solido y del color ingresado */
+    border: 2px solid var(--color-terciario);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Hover permite que se cambien las propiedades de un elemento cunado se le pone el cursor por encima */
+.presentacion__enlace__link:hover{
+    background-color: var(--color-hover);
+}
+
+.presentacion_imagen{
+    /*El procentaje se refiere el espacio ocupado con respecto al padre del elemento*/
+    width: 50%;
+}
+
+.footer{
+    background-color: var(--color-terciario);
+    padding: 24px;
+    color: var(--color-primario);
+    text-align: center;
+    font-family: var(--fuente-Montserrat);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/*@media permite cambiar las propiedades del front cuando se cambia el tamaño de la pantalla*/
+@media(max-width: 1200px){
+    .header{
+        padding: 10% 
+    }
+    .header__menu{
+        justify-content: center;
+    }
+
+    .presentacion{
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+    .presentacion__contenido{
+        /*auto permite que se actualice automaticamente al elemento padre*/
+        width: auto;
+    }
+}
